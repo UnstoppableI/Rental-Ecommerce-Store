@@ -21,7 +21,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, bazarReducer)
 
 export const store = configureStore({
-    reducer: {bazar: persistReducer},
+    reducer: {bazar: persistedReducer},
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
         serializableCheck: {

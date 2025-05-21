@@ -1,32 +1,28 @@
-"use client"
+"use client";
 import "./globals.css";
-import Home from "./page";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {BrowserRouter, Routes, Route, Outlet, ScrollRestoration,} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./page";
 import Cart from "@/app/Cart";
-import productsData from "@/api/Api";
 import Product from "@/components/Product";
 import Login from "./Login";
+import { store } from "@/redux/store";
+import { Provider } from "react-redux";
 
-
-export default function RootLayout({children}) 
-{
-  return(
-    <>
-    <Header />
-    
-    <BrowserRouter>
+export default function RootLayout() {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+      <Header />
       <Routes>
-        <Route index element={<Home />} loader={<productsData />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
-        <Route path="login" element={<Login />}></Route>
-        <Route path= "/product/:id" element= {<Product />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<Product />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
-    {/* <ScrollRestoration /> */}
-    <Outlet />
-    <Footer />
-    </>
-  )
+    </Provider>
+  );
 }
