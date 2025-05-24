@@ -1,6 +1,6 @@
 import React from "react";
 import {GoogleAuthProvider, getAuth, signInWithPopup, SignOut, } from "firebase/auth";
-import {toast} from "react-bootstrap/Toast";
+import {toast} from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import {addUser, removeUser} from "../redux/bazarSlice";
 import {useNavigate} from "react-router-dom";

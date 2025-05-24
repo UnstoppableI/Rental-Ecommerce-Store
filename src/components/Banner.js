@@ -51,7 +51,7 @@ const Banner = () => {
                 {data.map((slide, index) => (
                     <div key={index} className="w-full h-full flex-shrink-0">
                         <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
-                        <div className="absolute inset-0 bg-black bg-optacity-50">
+                        <div className="absolute inset-0 bg-optacity-50">
                             <div className="text-center text-white">
                                 <h2 className="text"></h2>
                                 <p className="text-xl mb-4">{slide.subtitle}</p>
